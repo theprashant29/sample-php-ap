@@ -1,0 +1,17 @@
+RewriteOptions inherit
+Options +FollowSymLinks
+RewriteBase /
+
+
+
+RewriteEngine on
+RewriteRule ^prices/$ - [F]
+RewriteRule ^accounts/profile$ - [F]
+RewriteRule ^billing-admin/profile/subscription$ - [F]
+RewriteRule ^corporate/account/users$ - [F]
+RewriteRule ^accounts/queries$ - [F]
+RewriteRule ^sso/logout$ - [F]
+RewriteRule ^sos(.*)$ /projects/ [R=301,NC,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* /index.php [L]
